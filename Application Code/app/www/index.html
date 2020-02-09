@@ -1,7 +1,26 @@
 {% extends "skel.html" %}
 
-{% block body_ %}
-{%for i in body %}
-	{{ i }}&nbsp;
-{% endfor %}
+{% block fg_content %}
+<div class="main-frontbanner">
+    <div class="main-title">All the Buzz Around SMIT</div>
+    <div class="main-subtitle">Now at your fingertips.</div>
+</div>
+<div id="main-content">
+    {% if news %}
+        <h1>LATEST NEWS</h1>
+        <hr />
+        {% for k in news %}
+            <div class="newslist-title"><a href="{{ k.url }}">{{ k.title }}</a></div>
+            <div class="newslist-brief">
+                {{ k.content }}
+            </div>
+            {% if k.imageurl %}
+                <img class="newslist-image" src="{{ k.imageurl }}" />
+            {% endif %}
+            <a href="/latest">More news...</a>
+        {% endfor %}
+    {% else %}
+        <b>You shouldn't be seeing this!</b>
+    {% endif %}
+</div>
 {% endblock %}

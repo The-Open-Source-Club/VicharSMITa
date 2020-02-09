@@ -30,34 +30,13 @@
     </div>
     <div id="main-menu" onblur="menu()">
         <ul id="main-menu-contents">
-            <li>Sign In</li>
+            <li><a href="{{ url_for('login') }}">Sign In</a></li>
             <li>About</li>
         </ul>
     </div>
     <div class="padding"></div>
     <div id="main-fg">
-        <div class="main-frontbanner">
-            <div class="main-title">All the Buzz Around SMIT</div>
-            <div class="main-subtitle">Now at your fingertips.</div>
-        </div>
-        <div id="main-content">
-            {% if news %}
-                <h1>LATEST NEWS</h1>
-                <hr />
-                {% for k in news %}
-                    <div class="newslist-title"><a href="{{ k.url }}">{{ k.title }}</a></div>
-                    <div class="newslist-brief">
-                        {{ k.content }}
-                    </div>
-                    {% if k.imageurl %}
-                        <img class="newslist-image" src="{{ k.imageurl }}" />
-                    {% endif %}
-                    <a href="/latest">More news...</a>
-                {% endfor %}
-            {% else %}
-                <b>You shouldn't be seeing this!</b>
-            {% endif %}
-        </div>
+        {% block fg_content %} {% endblock %}
     </div>
     <div id="main-footer">
         Powered by <a href="https://www.python.org/">Python3</a>,
