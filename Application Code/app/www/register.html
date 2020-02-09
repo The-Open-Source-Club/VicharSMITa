@@ -1,0 +1,20 @@
+{% extends "skel.html" %}
+{% block fg_content %}
+<div class="centertitle">
+Register
+</div>
+<div id="main-register" class="box center topmargin formbox">
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <p>{{ form.username.label }}</p>
+        <p>{{ form.username(size=32) }}</p>
+        <p>{{ form.email.label }}</p>
+        <p>{{ form.email(size=32) }}</p>
+        <p>{{ form.password.label }}</p>
+        <p>{{ form.password(size=32) }}</p>
+        <p>{{ form.password2.label }}</p>
+        <p>{{ form.password2(size=32) }}</p>
+        <p>{{ form.submit() }}</p>
+    </form>
+</div>
+{% endblock %}

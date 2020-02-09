@@ -1,20 +1,17 @@
 {% extends "skel.html" %}
 {% block fg_content %}
-<div id="main-login" class="box center topmargin">
+<div class="centertitle">
+Login
+</div>
+<div id="main-login" class="box center topmargin formbox">
     <form method="post">
         {{ form.hidden_tag() }}
-         <table>
-            <tr>
-                <td>{{ form.username.label }}</td>
-                <td>{{ form.username(size=32, class_="login") }}</td>
-            </tr>
-            <tr>
-                <td>{{ form.password.label }}</td>
-                <td>{{ form.password(size=32, class_="login") }}</td>
-            </tr>
-            <tr><td colspan="2">{{ form.remember_me() }} {{ form.remember_me.label }}</td></tr>
-            <tr><td>{{ form.submit(class_ = "button") }}</td></tr>
-         </table>
+        <p>{{ form.username.label }}</p>
+        <p>{{ form.username(size=32, class_="login") }}</p>
+        <p>{{ form.password.label }}<br /></p>
+        <p>{{ form.password(size=32, class_="login") }}</p>
+        <p>{{ form.remember_me(class_="checkbox") }} {{ form.remember_me.label }}</p>
+        <p>{{ form.submit(class_ = "button") }}</p>
     </form>
 </div>
 {% endblock %}

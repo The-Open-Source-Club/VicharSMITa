@@ -2,16 +2,28 @@ from flask import render_template
 from flask import flash, redirect, url_for
 from flask_login import current_user, login_user, logout_user
 from app import app
-from app.forms import LoginForm
+from app.forms import LoginForm, RegisterForm
 from app.datamodel import User
 
 @app.route('/')
 @app.route('/index')
 def index():
-    title = "Hello";
-    msg = "hi";
-    body = [1, 2, 3, 4, 5, 6, 7, 8];
-    return render_template("index.html", title = title, msg = msg, body = body);
+    title = "Hello"
+    return render_template("index.html", title = title);
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    form = RegisterForm()
+    if form.validate_on_submit():
+        user = User(username=form.username.data, email=form.email.data)
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        flash('Congratulations, you are now a registered user!')
+        return redirect(url_for('login'))
+    return render_template('register.html', title='Register an Account', form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -42,4 +54,8 @@ def search():
 
 @app.route('/article', methods=['GET', 'POST'])
 def article():
+    return None;
+
+@app.route('/createarticle', methods=['GET', 'POST'])
+def createarticle():
     return None;

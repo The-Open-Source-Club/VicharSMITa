@@ -23,11 +23,6 @@
     font-style: italic;
 }
 
-input.login {
-    border-radius: 2px;
-    border: 2px solid black;
-}
-
 .clearfix::after {
     content: "";
     clear: both;
@@ -167,7 +162,7 @@ div.main-frontbanner {
     background-attachment: fixed;
     background-position: center;
     height: 300px;
-    text-shadow: 1px 1px 2px black;
+    text-shadow: 1px 1px 3px black;
 }
 
 div.main-title {
@@ -197,28 +192,64 @@ a:visited {
     color: #D32DFF;
 }
 
-#main-login {
+.centertitle {
+    text-align: center;
+    font-size: 50px;
+    text-decoration: bold;
+    margin: 20px 20px 20px 20px;
+    font-weight: bold;
+}
+
+.formbox {
     border-radius: 3px;
     padding: 5px 5px 5px 5px;
-    border: 2px solid grey;
+    box-shadow: 5px 5px 5px 2px #323232;
+    border: 1px solid grey;
     margin:30px auto auto auto;
     width: 400px;
     text-decoration: bold;
 }
 
-.button {
+.formbox p {
+    margin:10px 10px 10px 10px
+}
+
+.formbox p input[type=text], .formbox p input[type=password] {
+    font-family:sans;
+    font-size:14px;
+    width:80%;
+    border-radius: 2px;
+    border: 1px solid #C1C1C1;
+    min-height:25px;
+    padding:4px 4px 4px 4px;
+}
+
+.formbox p input[type=button], .formbox p input[type=submit] {
     background-color:white;
     border-radius: 2px;
     font-family: sans;
-    border: 2px solid black;
+    border: 1px solid #CBCBCB;
+    padding: 5px 5px 5px 5px;
+    
 }
 
-.button:active {
+.formbox p input[type=button]:active, .formbox p input[type=submit]:active {
     background-color:#BEBEBE;
+}
+
+.formbox p input[type=button]:hover, .formbox p input[type=button]:hover {
+    color:#26ACD9;
+}
+
+.formbox p input[type=checkbox]: {
+    border: 1px solid black;
+    background: white;
+    border-radius: 2px;
 }
 
 
 table, th, td{
+    width:100%;
     vertical-align: center;
     margin: 3px 3px 3px 3px;
 }
@@ -235,7 +266,12 @@ table, th, td{
     #main-nav-list li.main-nav-button {
         display:none;
     }
-    #main-login {
+    .formbox {
         width: 98%;
+        border: none;
+        box-shadow: none;
+    }
+    .formbox p input[type=text], .formbox p input[type=password] {
+        width:90%
     }
 }
