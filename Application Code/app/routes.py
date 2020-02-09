@@ -3,7 +3,7 @@ from flask import flash, redirect, url_for
 from flask import request
 from flask_login import current_user, login_user, logout_user
 from app import app
-from app.forms import LoginForm, RegisterForm
+from app.forms import LoginForm, RegisterForm, BrowseForm
 from app.datamodel import User, Article
 from app import db
 
@@ -52,8 +52,22 @@ def profile():
     return None;
 
 @app.route('/browse', methods=['GET', 'POST'])
-def search():
-    return None;
+def browse():
+    form = BrowseForm()
+    news = Article.query;
+    if(request.args.get('q') != None):
+        if(int(request.args.get('sortby')) == 1):
+            news = news.filter(Article.title.like('%' + request.args.get('q') + '%'));
+            print(list(news));
+            news = news.order_by(Article.date.desc()).all();
+        elif(int(request.args.get('sortby')) == 2):
+            news = news.filter(Article.title.like('%' + request.args.get('q') + '%'));
+            print(list(news));
+            news = news.order_by(Article.date).all();
+        return render_template('browse.html', title='Browse', form=form, news=news);
+    else:
+        news = news.order_by(Article.date.desc()).all();
+        return render_template('browse.html', title='Browse', form=form, news=news);
 
 @app.route('/article/<article_id>', methods=['GET', 'POST'])
 def article(article_id):

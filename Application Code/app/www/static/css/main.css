@@ -267,14 +267,14 @@ a:visited {
     color: black;
 }
 
-.news-data {
+.news-date {
     font-style: italic;
     color: #999999;
-    font-size: small;
+    font-size: 12px;
 }
 
 .news-brief {
-    margin: 5px 0 0 10px;
+    margin: 20px 0 0 10px;
 }
 
 .morenews {

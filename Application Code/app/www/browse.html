@@ -1,1 +1,38 @@
+{% extends "skel.html" %}
 
+{% block fg_content %}
+<form method="get" class="formbox">
+    <p>{{ form.q.label }}</p>
+    <p>{{ form.q() }}</p>
+    {% for error in form.q.errors %}
+        <p style="color: red;">[{{ error }}]</p>
+    {% endfor %}
+    <p>{{ form.sortby.label }}</p>
+    <p>{{ form.sortby() }}</p>
+    {% for error in form.sortby.errors %}
+        <p style="color: red;">[{{ error }}]</p>
+    {% endfor %}
+</form>
+
+<div id="search-results">
+    <h1>Search Results:</h1>
+    {% if news %}
+        {% for k in news %}
+            <div class="news">
+                <div class="news-title"><a href="/article/{{ k.id }}">{{ k.title }}</a></div>
+                <div class="news-date">{{ k.date }}</div>
+                <div class="news-brief">
+                    {{ k.content }}
+                </div>
+                {% if k.imageurl %}
+                    <img class="news-image" src="{{ k.imageurl }}" />
+                {% endif %}
+            </div>
+        {% endfor %}
+            <div class="morenews"><a href="/browse">More news...</a></div>
+    {% else %}
+        <b>No articles match your query.</b>
+    {% endif %}
+</div>
+
+{% endblock %}

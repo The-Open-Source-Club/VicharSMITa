@@ -7,12 +7,12 @@
 </div>
 <div id="main-content">
     {% if news %}
-        <h1 style="margin: 5px 5px 5px 5px;">LATEST NEWS</h1>
+        <h1 style="margin: 10px 5px 5px 5px;">LATEST NEWS</h1>
         <hr class="titlebottom" />
         {% for k in news %}
             <div class="news">
                 <div class="news-title"><a href="/article/{{ k.id }}">{{ k.title }}</a></div>
-                <div class="news-date"></div>
+                <div class="news-date">{{ k.date }}</div>
                 <div class="news-brief">
                     {{ k.content }}
                 </div>

@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 from wtforms.validators import DataRequired
 from app.datamodel import User
@@ -27,3 +27,7 @@ class RegisterForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Please use a different email address.')
+            
+class BrowseForm(FlaskForm):
+    q = StringField('Enter Query', default="")
+    sortby = SelectField('Sort By:', choices = [(1, "Newest"),(2, "Oldest")], default = 1)
