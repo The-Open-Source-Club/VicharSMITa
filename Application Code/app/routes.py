@@ -6,7 +6,8 @@ from flask_login import current_user, login_user, logout_user
 from markdown2 import Markdown
 
 from app import app
-from app.forms import LoginForm, RegisterForm, BrowseForm, CreateArticleForm, ArticleLikeForm, ArticleReadLaterForm
+from app.forms import LoginForm, RegisterForm, BrowseForm, CreateArticleForm,\
+                      ArticleLikeForm, ArticleReadLaterForm, ProfileForm
 from app.datamodel import User, Article
 from app import db
 
@@ -56,7 +57,10 @@ def logout():
 
 @app.route('/profile')
 def profile():
-    return None;
+    if not (current_user.is_authenticated):
+        return redirect(url_for('login'))
+    form = ProfileForm()
+    return render_template('profile.html', title='Sign In', form=form, usertype = 5)
 
 @app.route('/browse', methods=['GET', 'POST'])
 def browse():
@@ -90,7 +94,7 @@ def article(article_id):
     formlike = ArticleLikeForm()
     formlater = ArticleReadLaterForm()
     if formlike.validate_on_submit():
-        print(current_user.id)
+        print(current_user.id + "##########################################")
     return render_template('article.html', article = art, formlike = formlike, formlater = formlater)
 
 @app.route('/createarticle', methods=['GET', 'POST'])

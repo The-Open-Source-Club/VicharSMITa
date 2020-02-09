@@ -5,8 +5,10 @@
     <div id="article-subtitle">{{ article.date.strftime("%a %d %b %Y, %I:%M %p") }}</div>
     {{ article.content|safe }}
     <div id="userpanel">
-    <form method="post">
-        
+    <form method="post" class="formbox">
+        <p>
+        {{ formlike.submit() }}
+        </p>
     </form>
     </div>
 </div>

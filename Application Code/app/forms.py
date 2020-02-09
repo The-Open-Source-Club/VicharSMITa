@@ -15,8 +15,7 @@ class RegisterForm(FlaskForm):
     username = StringField('Your Username:', validators=[DataRequired()])
     email = StringField('Your Email:', validators=[DataRequired(), Email()])
     password = PasswordField('Password:', validators=[DataRequired()])
-    password2 = PasswordField(
-        'Repeat Password:', validators=[DataRequired(), EqualTo('password')])
+    password2 = PasswordField('Repeat Password:', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Register')
 
     def validate_username(self, username):
@@ -46,3 +45,7 @@ class ArticleLikeForm(FlaskForm):
 
 class ArticleReadLaterForm(FlaskForm):
     submit = SubmitField('Read Later')
+
+class ProfileForm(FlaskForm):
+    currentpassword = PasswordField('Current Password:', validators=[DataRequired()])
+    newpassword = PasswordField('New Password:');

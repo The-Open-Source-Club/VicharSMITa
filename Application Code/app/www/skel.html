@@ -18,7 +18,9 @@
                 <a href="{{ url_for('browse') }}"><li class="main-nav-button">Browse</li></a>
                 <a href="{{ url_for('createarticle') }}"><li class="main-nav-button">Create Article</li></a>
                 <li id="main-menubutton-container"><button id="main-menubutton" onclick="menu()"/></li>
-                {% if current_user.is_authenticated %}<li id="main-user-container">Logged in as: {{ current_user.username }}</button></li>{% endif %}
+                {% if current_user.is_authenticated %}<li id="main-user-container" class="tooltip"><img style="max-width:100%; height:24px;"src="/assets/profpic.png" alt="Logged in as: {{ current_user.username }}" />
+                <span class="tooltiptext">Logged in as: {{ current_user.username }}</span>
+                </li>{% endif %}
                 <li id="main-search">
                     <form action="/browse" method="get" >
                         <input type="text" name="q" id="main-searchbar" value="Search"  onfocus="searchbar()"/>
