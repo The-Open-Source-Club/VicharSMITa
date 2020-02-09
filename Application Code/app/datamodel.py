@@ -27,7 +27,7 @@ def load_user(id):
 
 class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    dat= db.Column(db.DateTime, default=datetime.utcnow);
+    date = db.Column(db.DateTime, default=datetime.utcnow);
     title = db.Column(db.String(512), index=True, unique=True)
     content = db.Column(db.UnicodeText(), index=True)
     def __repr__(self):

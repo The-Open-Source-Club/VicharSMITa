@@ -1,15 +1,18 @@
 from flask import render_template
 from flask import flash, redirect, url_for
+from flask import request
 from flask_login import current_user, login_user, logout_user
 from app import app
 from app.forms import LoginForm, RegisterForm
-from app.datamodel import User
+from app.datamodel import User, Article
+from app import db
 
 @app.route('/')
 @app.route('/index')
 def index():
     title = "Hello"
-    return render_template("index.html", title = title);
+    news = list(Article.query.order_by(Article.date.desc()))
+    return render_template("index.html", title = title, news = news);
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -52,10 +55,13 @@ def profile():
 def search():
     return None;
 
-@app.route('/article', methods=['GET', 'POST'])
-def article():
-    return None;
+@app.route('/article/<article_id>', methods=['GET', 'POST'])
+def article(article_id):
+    if(article_id == None):
+        return redirect(url_for('index'))
+    
+    return render_template('article.html', art_title = art_title, art_date = art_date, art_content = art_content);
 
 @app.route('/createarticle', methods=['GET', 'POST'])
 def createarticle():
-    return None;
+    return render_template('article.html');

@@ -7,20 +7,23 @@
 </div>
 <div id="main-content">
     {% if news %}
-        <h1>LATEST NEWS</h1>
-        <hr />
+        <h1 style="margin: 5px 5px 5px 5px;">LATEST NEWS</h1>
+        <hr class="titlebottom" />
         {% for k in news %}
-            <div class="newslist-title"><a href="{{ k.url }}">{{ k.title }}</a></div>
-            <div class="newslist-brief">
-                {{ k.content }}
+            <div class="news">
+                <div class="news-title"><a href="/article/{{ k.id }}">{{ k.title }}</a></div>
+                <div class="news-date"></div>
+                <div class="news-brief">
+                    {{ k.content }}
+                </div>
+                {% if k.imageurl %}
+                    <img class="news-image" src="{{ k.imageurl }}" />
+                {% endif %}
             </div>
-            {% if k.imageurl %}
-                <img class="newslist-image" src="{{ k.imageurl }}" />
-            {% endif %}
-            <a href="/latest">More news...</a>
         {% endfor %}
+            <div class="morenews"><a href="/browse">More news...</a></div>
     {% else %}
-        <b>You shouldn't be seeing this!</b>
+        <b>No articles Available currently!</b>
     {% endif %}
 </div>
 {% endblock %}
