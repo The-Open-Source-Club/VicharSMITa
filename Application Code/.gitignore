@@ -1,0 +1,10 @@
+bin
+include
+lib
+lib64
+app.zip
+app/__pycache__
+dcoders.geany
+dcoders.tags
+pyvenv.cfg
+
