@@ -1,23 +1,25 @@
 {% extends "skel.html" %}
 {% block fg_content %}
-<div class="centertitle">
-Login
-</div>
-<div id="main-login" class="box center topmargin formbox">
-    <form method="post">
-        {{ form.hidden_tag() }}
-        <p>{{ form.username.label }}</p>
-        <p>{{ form.username(size=32, class_="login") }}</p>
-        {% for error in form.username.errors %}
-            <p style="color: red;">[{{ error }}]</p>
-        {% endfor %}
-        <p>{{ form.password.label }}<br /></p>
-        <p>{{ form.password(size=32, class_="login") }}</p>
-        {% for error in form.password.errors %}
-            <p style="color: red;">[{{ error }}]</p>
-        {% endfor %}
-        <p>{{ form.remember_me(class_="checkbox") }} {{ form.remember_me.label }}</p>
-        <p>{{ form.submit(class_ = "button") }}</p>
-    </form>
+<div id="main-content">
+    <div class="centertitle">
+    Login
+    </div>
+    <div id="main-login" class="box center topmargin centerbox formbox">
+        <form method="post">
+            {{ form.hidden_tag() }}
+            <p>{{ form.username.label }}</p>
+            <p>{{ form.username(size=32) }}</p>
+            {% for error in form.username.errors %}
+                <p style="color: red;">[{{ error }}]</p>
+            {% endfor %}
+            <p>{{ form.password.label }}<br /></p>
+            <p>{{ form.password(size=32) }}</p>
+            {% for error in form.password.errors %}
+                <p style="color: red;">[{{ error }}]</p>
+            {% endfor %}
+            <p>{{ form.remember_me(class_="checkbox") }} {{ form.remember_me.label }}</p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
 </div>
 {% endblock %}

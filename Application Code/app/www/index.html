@@ -12,13 +12,14 @@
         {% for k in news %}
             <div class="news">
                 <div class="news-title"><a href="/article/{{ k.id }}">{{ k.title }}</a></div>
-                <div class="news-date">{{ k.date }}</div>
+                <div class="news-date">{{ k.date.strftime("%a %d %b %Y, %I:%M %p") }}</div>
                 <div class="news-brief">
-                    {{ k.content }}
+                    {{ k.content|safe }}
                 </div>
                 {% if k.imageurl %}
                     <img class="news-image" src="{{ k.imageurl }}" />
                 {% endif %}
+                <div class="news-footer"><span class="likes">Likes: {{ k.likes }}</span>&nbsp;<span class="tags">Tags: {{ k.tags }}</span></div>
             </div>
         {% endfor %}
             <div class="morenews"><a href="/browse">More news...</a></div>

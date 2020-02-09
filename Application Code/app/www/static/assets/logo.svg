@@ -26,10 +26,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="6.220786"
-     inkscape:cx="83.946863"
-     inkscape:cy="2.2491575"
+     inkscape:cx="79.963111"
+     inkscape:cy="9.861594"
      inkscape:document-units="mm"
-     inkscape:current-layer="text2120"
+     inkscape:current-layer="text2023"
      showgrid="false"
      showguides="false"
      fit-margin-top="0"
@@ -124,17 +124,15 @@
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.23333311px;font-family:'Noto Serif';-inkscape-font-specification:'Noto Serif Bold';fill:#ffd42a;stroke-width:0.26458332px"
            id="path833" />
       </g>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:125%;font-family:'Noto Serif';-inkscape-font-specification:'Noto Serif';letter-spacing:0px;word-spacing:0px;fill:#55ddff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
-         x="19.156139"
-         y="5.9610415"
-         id="text2126"><tspan
-           sodipodi:role="line"
-           id="tspan2124"
-           x="19.156139"
-           y="5.9610415"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';stroke-width:0.26458332px;fill:#55ddff;">@</tspan></text>
+      <g
+         aria-label="@"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444447px;line-height:125%;font-family:'Noto Serif';-inkscape-font-specification:'Noto Serif';letter-spacing:0px;word-spacing:0px;fill:#55ddff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="text2126">
+        <path
+           d="m 23.936984,3.9403303 q 0,0.2596445 -0.06209,0.5136445 -0.06209,0.254 -0.191911,0.4628444 -0.124178,0.2088445 -0.316089,0.3330222 -0.191911,0.1185334 -0.451556,0.1185334 -0.208844,0 -0.366889,-0.095956 -0.158044,-0.1016 -0.220133,-0.2596444 h -0.04515 q -0.112889,0.1411111 -0.3048,0.2483555 -0.186267,0.1072445 -0.451556,0.1072445 -0.502356,0 -0.778933,-0.2991556 -0.270934,-0.3048 -0.270934,-0.7958666 0,-0.3781778 0.163689,-0.6660445 0.163689,-0.2935111 0.462845,-0.4572 0.299155,-0.1693333 0.705555,-0.1693333 0.265289,0 0.547511,0.0508 0.287867,0.045155 0.445911,0.1016 l -0.05644,1.1571111 q -0.0056,0.056444 -0.0056,0.1185333 0,0.056445 0,0.073378 0,0.2314222 0.06209,0.3104444 0.06773,0.073378 0.146756,0.073378 0.124178,0 0.208844,-0.1241778 0.09031,-0.1298222 0.129823,-0.3386666 0.04515,-0.2144889 0.04515,-0.4684889 0,-0.4684889 -0.191911,-0.8015111 -0.191911,-0.3330223 -0.524933,-0.508 -0.333022,-0.1749778 -0.750711,-0.1749778 -0.592667,0 -0.999067,0.2483555 -0.400756,0.2427112 -0.6096,0.6716889 -0.208844,0.4233334 -0.208844,0.9652 0,0.762 0.4064,1.1684 0.4064,0.4064001 1.179688,0.4064001 0.327378,0 0.677334,-0.067733 0.3556,-0.073378 0.654755,-0.1862667 v 0.5305778 q -0.270933,0.1128889 -0.603955,0.1806223 -0.333022,0.067733 -0.705556,0.067733 -0.699911,0 -1.196622,-0.2483556 -0.496711,-0.2483555 -0.762,-0.7112 -0.259644,-0.4684889 -0.259644,-1.1232444 0,-0.5136445 0.169333,-0.9539111 0.169333,-0.4402667 0.485422,-0.7676445 0.316089,-0.3330222 0.762,-0.5136444 0.451556,-0.1862667 1.004711,-0.1862667 0.603956,0 1.072445,0.2427111 0.468489,0.2427111 0.733778,0.6942667 0.270933,0.4515555 0.270933,1.0724444 z m -2.822222,0.3443111 q 0,0.3104445 0.129822,0.4459112 0.129822,0.1354666 0.344311,0.1354666 0.282222,0 0.395111,-0.2032 0.118533,-0.2088444 0.141111,-0.5418666 l 0.03387,-0.6096 q -0.06209,-0.011289 -0.146756,-0.016933 -0.07902,-0.011289 -0.169333,-0.011289 -0.270933,0 -0.428978,0.1185334 -0.158044,0.1128889 -0.231422,0.2991555 -0.06773,0.1862667 -0.06773,0.3838222 z"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';fill:#55ddff;stroke-width:0.26458332px"
+           id="path836" />
+      </g>
     </g>
   </g>
 </svg>

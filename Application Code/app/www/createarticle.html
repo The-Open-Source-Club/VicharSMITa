@@ -1,0 +1,34 @@
+{% extends "skel.html" %}
+{% block fg_content %}
+<div id="main-content">
+    <div class="centertitle">Create an Article</div>
+    <form method="post" class="formbox">
+        {{ form.hidden_tag() }}
+        <p>{{ form.title.label }}</p>
+        <p>{{ form.title }}</p>
+        {% for error in form.title.errors %}
+                <p style="color: red;">[{{ error }}]</p>
+        {% endfor %}
+        <p>{{ form.content.label }}</p>
+        <p>{{ form.content( id="article-content" ) }}</p>
+        {% for error in form.content.errors %}
+                <p style="color: red;">[{{ error }}]</p>
+        {% endfor %}
+        <p>{{ form.tags.label }}</p>
+        <p><small><i>Tags should be separated by space</i></small></p>
+        <p>{{ form.tags() }}</p>
+        {% for error in form.tags.errors %}
+                <p style="color: red;">[{{ error }}]</p>
+        {% endfor %}
+        <p>{{ form.submit() }}</p>
+    </form>
+</div>
+{% endblock %}
+
+{% block end_content %}
+<script src="/js/simplemde.min.js"></script>
+<script>
+    var simplemde = new SimpleMDE({ element: document.getElementById("article-content") });
+</script>
+<link rel="stylesheet" type="text/css" href="/css/simplemde.min.css" />
+{% endblock %}

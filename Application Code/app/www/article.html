@@ -1,12 +1,14 @@
 {% extends "skel.html" %}
 {% block fg_content %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-<form>
-    <textarea>enter here !!</textarea>
-    <input type="submit" name="submit">
-</form>
-<script>
-    var simplemde = new SimpleMDE();    
-</script>
+<div id="main-content">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <form>
+        <textarea>enter here !!</textarea>
+        <input type="submit" name="submit">
+    </form>
+    <script>
+        var simplemde = new SimpleMDE();    
+    </script>
+</div>
 {% endblock %}

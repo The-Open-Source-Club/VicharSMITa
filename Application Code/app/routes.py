@@ -2,16 +2,19 @@ from flask import render_template
 from flask import flash, redirect, url_for
 from flask import request
 from flask_login import current_user, login_user, logout_user
+from markdown2 import Markdown
+
 from app import app
-from app.forms import LoginForm, RegisterForm, BrowseForm
+from app.forms import LoginForm, RegisterForm, BrowseForm, CreateArticleForm
 from app.datamodel import User, Article
 from app import db
+
 
 @app.route('/')
 @app.route('/index')
 def index():
     title = "Hello"
-    news = list(Article.query.order_by(Article.date.desc()))
+    news = list(Article.query.order_by(Article.date.desc()).limit(10).all())
     return render_template("index.html", title = title, news = news);
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -55,14 +58,17 @@ def profile():
 def browse():
     form = BrowseForm()
     news = Article.query;
+    if(request.args.get('sortby') == None):
+        sb = 1;
+    else:
+        sb = int(request.args.get('sortby'));
+    
     if(request.args.get('q') != None):
-        if(int(request.args.get('sortby')) == 1):
+        if(sb == 1):
             news = news.filter(Article.title.like('%' + request.args.get('q') + '%'));
-            print(list(news));
             news = news.order_by(Article.date.desc()).all();
-        elif(int(request.args.get('sortby')) == 2):
+        elif(sb == 2):
             news = news.filter(Article.title.like('%' + request.args.get('q') + '%'));
-            print(list(news));
             news = news.order_by(Article.date).all();
         return render_template('browse.html', title='Browse', form=form, news=news);
     else:
@@ -78,4 +84,14 @@ def article(article_id):
 
 @app.route('/createarticle', methods=['GET', 'POST'])
 def createarticle():
-    return render_template('article.html');
+    #if not (current_user.is_authenticated):
+      #  return redirect(url_for('login'))
+    form = CreateArticleForm();
+    if form.validate_on_submit():
+        md = Markdown()
+        art = Article(title = form.title.data, content = md.convert(form.content.data), tags = form.tags.data);
+        db.session.add(art)
+        db.session.commit()
+        flash('Article Published!')
+        return redirect(url_for('index'))
+    return render_template('createarticle.html', title = "Create Article", form = form);

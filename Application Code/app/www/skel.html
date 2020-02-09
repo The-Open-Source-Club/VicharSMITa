@@ -7,10 +7,9 @@
         <title>VicharSMITa</title>
     {% endif %}
     <link rel="stylesheet" type="text/css" href="/css/main.css" />
-    <script src="/js/main.js"></script>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="favicon.png" />
+    <link rel="icon" href="/assets/icon.svg" />
 </head>
 <body>
     <div id="main-topbar" class="clearfix">
@@ -57,5 +56,7 @@
         <a href="https://sqlite.org/index.html">sqlite</a><br />
         Made By <a href="https://github.com/aghorui">Anamitra Ghorui</a> and <a href="https://github.com/ashishdevnagar">Ashish Devnagar</a>.
     </div>
+    {% block end_content %}{% endblock %}
+    <script src="/js/main.js"></script>
 </body>
 </html>

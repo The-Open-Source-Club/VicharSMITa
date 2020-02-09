@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 from wtforms.validators import DataRequired
+from wtforms.widgets import TextArea
 from app.datamodel import User
 
 class LoginForm(FlaskForm):
@@ -29,5 +30,11 @@ class RegisterForm(FlaskForm):
             raise ValidationError('Please use a different email address.')
             
 class BrowseForm(FlaskForm):
-    q = StringField('Enter Query', default="")
+    q = StringField('Enter Query:', default="")
     sortby = SelectField('Sort By:', choices = [(1, "Newest"),(2, "Oldest")], default = 1)
+
+class CreateArticleForm(FlaskForm):
+    title = StringField('Title:', validators=[DataRequired()])
+    content = StringField('Content:', widget=TextArea())
+    tags = StringField('Tags (Such as: marena, club, dcoders etc.):', validators=[DataRequired()])
+    submit = SubmitField('Publish')
