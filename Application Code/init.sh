@@ -8,4 +8,4 @@ fi
 $PYTHON_EXEC -m venv .
 . bin/activate
 $PYTHON_EXEC -m pip install -U pip
-$PYTHON_EXEC -m pip install flask flask-wtf
+$PYTHON_EXEC -m pip install flask flask-wtf flask-sqlalchemy flask-login flask-migrate

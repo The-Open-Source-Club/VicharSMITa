@@ -1,6 +1,7 @@
-## Team Number - Project Name
+## Team Number 50 - VicharSMITa
+An SMIT Daily News Website
 
-The participants are required to fork this repository and create a public Github repository under their own username (Single repository per team). The following created sections in this README.md need to be duly filled, highlighting the denoted points for the solution/implementation. Please feel free to create further sub-sections in this markdown, the idea is to understand the gist of the components in a singular document.
+This is a Web Application meant for the [Dcoders Hackathon](https://dcoders.info/hackathon), which is/was on Sunday, 9th Feb. 2020.
 
 ### Project Overview
 ----------------------------------
@@ -26,4 +27,31 @@ An overview of
 ### Team Members
 ----------------------------------
 
-List of team member names and email IDs with their contributions
+Anamitra Ghorui (anamitraghorui@gmail.com)
+Ashish Dev Nagar (princenagar093@gmail.com)
+
+
+## Installation
+
+### Prerequisites
+You will need Python 3 (3.7 or greater is recommended) along with the equivalent virtualenv and pip packages.
+
+On Ubuntu, you can install them using the following command:
+```
+# apt install python3 python3-pip python3-venv
+```
+
+### Installation on Linux
+Run the init.sh script which will automatically create the virtualenv and install the required dependencies.
+```
+$ bash ./init.sh
+```
+
+### Installation on Windows
+
+## Usage
+The server can now be started using the start.sh script:
+```
+$ bash ./start.sh
+```
+The key combination CTRL + C can be used to stop the server.

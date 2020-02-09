@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% if title %}
+        <title>{{title}}</title>
+    {% else %}
+        <title>What's Up SMIT</title>
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <script src="/js/main.js"></script>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="favicon.png" />
+</head>
+<body>
+    <div id="main-topbar" class="clearfix">
+         <ul id="main-nav-list">
+                <li><a href="/"><img src="/assets/logo.svg" /></a></li>
+                <li class="main-nav-button">Main</li>
+                <li class="main-nav-button">Clubs</li>
+                <li class="main-nav-button">Around SMIT</li>
+                <li class="main-nav-button">Elsewhere</li>
+                <li id="main-menubutton-container"><button id="main-menubutton" onclick="menu()"/></li>
+                {% if user %}<li id="main-user-container"><button id="main-user"> </button></li>{% endif %}
+                <li id="main-search">
+                        <input type="text" name="search-query" id="main-searchbar" value="Search"  onfocus="searchbar()"/>
+                        <input type="submit" id="main-searchbar-submit"/>
+                </li>
+         </ul>
+    </div>
+    <div id="main-menu" onblur="menu()">
+        <ul id="main-menu-contents">
+            <li>Sign In</li>
+            <li>About</li>
+        </ul>
+    </div>
+    <div class="padding"></div>
+    <div id="main-fg">
+        <div class="main-frontbanner">
+            <div class="main-title">All the Buzz Around SMIT</div>
+            <div class="main-subtitle">Now at your fingertips.</div>
+        </div>
+        <div id="main-content">
+            {% if news %}
+                <h1>LATEST NEWS</h1>
+                <hr />
+                {% for k in news %}
+                    <div class="newslist-title"><a href="{{ k.url }}">{{ k.title }}</a></div>
+                    <div class="newslist-brief">
+                        {{ k.content }}
+                    </div>
+                    {% if k.imageurl %}
+                        <img class="newslist-image" src="{{ k.imageurl }}" />
+                    {% endif %}
+                    <a href="/latest">More news...</a>
+                {% endfor %}
+            {% else %}
+                <b>You shouldn't be seeing this!</b>
+            {% endif %}
+        </div>
+    </div>
+    <div id="main-footer">
+        Powered by <a href="https://www.python.org/">Python3</a>,
+        <a href="https://palletsprojects.com/p/flask/">Flask</a>, and
+        <a href="https://sqlite.org/index.html">sqlite</a><br />
+        Made By <a href="https://github.com/aghorui">Anamitra Ghorui</a> and <a href="https://github.com/ashishdevnagar">Ashish Devnagar</a>.
+    </div>
+</body>
+</html>
