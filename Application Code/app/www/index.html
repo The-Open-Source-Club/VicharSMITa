@@ -10,15 +10,15 @@
         <h1 style="margin: 10px 5px 5px 5px;">LATEST NEWS</h1>
         <hr class="titlebottom" />
         {% for k in news %}
-            <div class="news">
-                <div class="news-title"><a href="/article/{{ k.id }}">{{ k.title }}</a></div>
-                <div class="news-date">{{ k.date.strftime("%a %d %b %Y, %I:%M %p") }}</div>
-                <div class="news-brief">
-                    {{ k.content|safe }}
-                </div>
+            <div class="news clearfix">
                 {% if k.imageurl %}
                     <img class="news-image" src="{{ k.imageurl }}" />
                 {% endif %}
+                <div class="news-title"><a href="/article/{{ k.id }}">{{ k.title }}</a></div>
+                <div class="news-date">{{ k.date.strftime("%a %d %b %Y, %I:%M %p") }}</div>
+                <div class="news-brief">
+                    {{ k.brief }}
+                </div>
                 <div class="news-footer"><span class="likes">Likes: {{ k.likes }}</span>&nbsp;<span class="tags">Tags: {{ k.tags }}</span></div>
             </div>
         {% endfor %}

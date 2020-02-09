@@ -1,1 +1,14 @@
-
+{% extends "skel.html" %}
+{% block fg_content %}
+<div id="main-content">
+    <h1>{{ current_user.name }}</h1>
+    <h2>{{ usertype }}</h2>
+    <a href="{{ url_for(request) }}"
+    <div id="submitted-articles">
+        <h2>Submitted articles</h2>
+        
+    </div>
+    <div id="marked-articles">
+        
+    </div>
+</div>

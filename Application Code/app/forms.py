@@ -35,6 +35,14 @@ class BrowseForm(FlaskForm):
 
 class CreateArticleForm(FlaskForm):
     title = StringField('Title:', validators=[DataRequired()])
+    brief = StringField('Content in Brief:', validators=[DataRequired()], widget=TextArea())
     content = StringField('Content:', widget=TextArea())
     tags = StringField('Tags (Such as: marena, club, dcoders etc.):', validators=[DataRequired()])
+    imageurl = StringField('Thumbnail Image URL (If Any):')
     submit = SubmitField('Publish')
+    
+class ArticleLikeForm(FlaskForm):
+    submit = SubmitField(u'♥ Like')
+
+class ArticleReadLaterForm(FlaskForm):
+    submit = SubmitField('Read Later')

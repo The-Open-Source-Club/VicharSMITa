@@ -27,11 +27,14 @@ def load_user(id):
 
 class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    creator = db.Column(db.Integer, index=True)
     date = db.Column(db.DateTime, default=datetime.utcnow)
     title = db.Column(db.String(512), index=True, unique=True)
+    brief = db.Column(db.UnicodeText(), index=True)
     content = db.Column(db.UnicodeText(), index=True)
     tags = db.Column(db.UnicodeText(), index=True)
     likes = db.Column(db.Integer, default = 0)
     imageurl = db.Column(db.UnicodeText(), index=True)
+    likedusers = db.Column(db.UnicodeText(), index=True)
     def __repr__(self):
         return '<Article {} :: {}>'.format(self.id, self.title)

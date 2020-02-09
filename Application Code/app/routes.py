@@ -1,14 +1,18 @@
 from flask import render_template
 from flask import flash, redirect, url_for
 from flask import request
+from flask import abort
 from flask_login import current_user, login_user, logout_user
 from markdown2 import Markdown
 
 from app import app
-from app.forms import LoginForm, RegisterForm, BrowseForm, CreateArticleForm
+from app.forms import LoginForm, RegisterForm, BrowseForm, CreateArticleForm, ArticleLikeForm, ArticleReadLaterForm
 from app.datamodel import User, Article
 from app import db
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 @app.route('/')
 @app.route('/index')
@@ -77,10 +81,17 @@ def browse():
 
 @app.route('/article/<article_id>', methods=['GET', 'POST'])
 def article(article_id):
-    if(article_id == None):
+    if(article_id == ""):
         return redirect(url_for('index'))
-    
-    return render_template('article.html', art_title = art_title, art_date = art_date, art_content = art_content);
+    else:
+        art = Article.query.filter_by(id=article_id).first()
+        if(art == None):
+            abort(404)
+    formlike = ArticleLikeForm()
+    formlater = ArticleReadLaterForm()
+    if formlike.validate_on_submit():
+        print(current_user.id)
+    return render_template('article.html', article = art, formlike = formlike, formlater = formlater)
 
 @app.route('/createarticle', methods=['GET', 'POST'])
 def createarticle():
@@ -89,7 +100,9 @@ def createarticle():
     form = CreateArticleForm();
     if form.validate_on_submit():
         md = Markdown()
-        art = Article(title = form.title.data, content = md.convert(form.content.data), tags = form.tags.data);
+        art = Article(title = form.title.data, content = md.convert(form.content.data), 
+        tags = form.tags.data, imageurl = form.imageurl.data);
+        print(form.imageurl.data)
         db.session.add(art)
         db.session.commit()
         flash('Article Published!')

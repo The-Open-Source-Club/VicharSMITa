@@ -48,7 +48,7 @@ body {
 }
 
 #main-topbar {
-    background: #1B72FF;
+    background: #003C9E;
     position: fixed;
     top:0;
     padding: 0;
@@ -92,8 +92,8 @@ body {
 }
 
 #main-searchbar {
-    border: 2px solid #31B5FF;
-    background:#0072D4;
+    border: 1px solid #31B5FF;
+    background:#00378D;
     border-radius: 4px;
     color: #F8F8F8;
     padding: 2px 2px 2px 2px;
@@ -101,10 +101,10 @@ body {
 }
 
 #main-searchbar::selection {
-    background: #004489;
+    background: #389BFF;
 }
 #main-searchbar::-moz-selection {
-    background: #004489;
+    background: #389BFF;
 }
 
 #main-searchbar-submit {
@@ -117,6 +117,10 @@ body {
     width:20px;
     height:20px;
     margin-left: 5px;
+}
+
+#main-user-container {
+    float:right;
 }
 
 #main-menubutton-container {
@@ -158,7 +162,11 @@ div.padding {
 }
 
 div.main-frontbanner {
-    background: url(/assets/smit.webp) no-repeat;
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.4), 
+      rgba(0, 0, 0, 0.4)
+    ),
+    url(/assets/smit.webp) no-repeat;
     margin:0;
     background-size:cover;
     font-size: 60px;
@@ -197,7 +205,7 @@ div.main-title {
     overflow: hidden;
 }
 
- a {
+a {
     color: #30A4FF;
     text-decoration:none;
 }
@@ -206,12 +214,33 @@ a:visited {
     color: #D32DFF;
 }
 
+.ui-url a {
+    color: white;
+    text-decoration: none
+}
+
+.ui-url a:visited {
+    color: white;
+}
+
 .centertitle {
     text-align: center;
     font-size: 50px;
-    text-decoration: bold;
     margin: 20px 20px 20px 20px;
     font-weight: bold;
+}
+.centersubtitle {
+    text-align: center;
+    font-size: 40px;
+    margin: 20px 20px 20px 20px;
+}
+
+.box {
+    border-radius: 3px;
+    padding: 5px 5px 5px 5px;
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.16), 0 0 0 2px rgba(0, 0, 0, 0.08);
+    border: 1px solid grey;
+    margin:30px auto auto auto;
 }
 
 .centerbox {
@@ -234,7 +263,7 @@ a:visited {
 .formbox p input[type=text], .formbox p input[type=password] {
     font-family:sans;
     font-size:14px;
-    width:95%;
+    width:98%;
     border-radius: 2px;
     border: 1px solid #C1C1C1;
     min-height:25px;
@@ -269,6 +298,15 @@ a:visited {
     border-radius: 2px;
 }
 
+.formbox textarea.wide {
+    font-family: sans;
+    border-radius: 2px;
+    border: 1px solid #C1C1C1;
+    padding:4px 4px 4px 4px;
+    width:98%;
+    min-height: 150px;
+}
+
 .news {
     padding: 5px 5px 20px 5px;
 }
@@ -293,6 +331,13 @@ a:visited {
     margin: 20px 0 0 10px;
 }
 
+.news-image {
+    float:right;
+    margin:20px 10px 10px 10px;
+    max-width: 40%;
+    height: auto;
+}
+
 .news-footer span {
     display: inline-block;
     margin: 10px 10px 10px 10px;
@@ -311,6 +356,12 @@ table, th, td{
     width:100%;
     vertical-align: center;
     margin: 3px 3px 3px 3px;
+}
+
+#article-subtitle {
+    font-style: italic;
+    color: #999999;
+    font-size: 14px;
 }
 
 
@@ -332,8 +383,5 @@ table, th, td{
         width: 98%;
         border: none;
         box-shadow: none;
-    }
-    .formbox p input[type=text], .formbox p input[type=password] {
-        width:90%
     }
 }

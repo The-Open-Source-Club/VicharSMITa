@@ -9,9 +9,19 @@
         {% for error in form.title.errors %}
                 <p style="color: red;">[{{ error }}]</p>
         {% endfor %}
+        <p>{{ form.brief.label }}</p>
+        <p>{{ form.brief(class_="wide") }}</p>
+        {% for error in form.brief.errors %}
+                <p style="color: red;">[{{ error }}]</p>
+        {% endfor %}
         <p>{{ form.content.label }}</p>
         <p>{{ form.content( id="article-content" ) }}</p>
         {% for error in form.content.errors %}
+                <p style="color: red;">[{{ error }}]</p>
+        {% endfor %}
+        <p>{{ form.imageurl.label }}</p>
+        <p>{{ form.imageurl() }}</p>
+        {% for error in form.imageurl.errors %}
                 <p style="color: red;">[{{ error }}]</p>
         {% endfor %}
         <p>{{ form.tags.label }}</p>
