@@ -29,6 +29,16 @@ The project uses:
 * Inkscape
 * SQlite
 
+## What has been Implemented:
+* Basic functionality
+* Responsive design
+* Login
+* Privileges and role management
+* Article Adding
+* Likes and User read later
+* Browsing and searching
+* Tags/categories
+
 ### Team Members
 ----------------------------------
 
