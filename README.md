@@ -1,4 +1,4 @@
-![Image](https://raw.githubusercontent.com/aghorui/VicharSMITa/master/Application%20Code/app/www/static/assets/logo.svg)
+![Image](https://raw.githubusercontent.com/aghorui/VicharSMITa/master/Application%20Code/app/www/static/assets/logo.svg.png)
 # Team Number 50 - VicharSMITa
 An SMIT Daily News Website
 
