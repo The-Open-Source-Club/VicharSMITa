@@ -13,7 +13,7 @@ This project attempts to create a simple and intuitive interface and backend for
 
 #### Technical Description
 
-Please refer to the Application README for More details and installation steps.
+Please refer to the application README for installation steps and presentation for more details.
 The project uses:
 * python
 * flask (python)
