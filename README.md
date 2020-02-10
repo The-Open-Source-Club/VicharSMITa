@@ -1,3 +1,4 @@
+![Image](https://raw.githubusercontent.com/aghorui/VicharSMITa/master/Application%20Code/app/www/static/assets/logo.svg)
 # Team Number 50 - VicharSMITa
 An SMIT Daily News Website
 
@@ -5,52 +6,25 @@ This is a Web Application meant for the [Dcoders Hackathon](https://dcoders.info
 
 ## Project Overview
 
-A brief description of 
-* What problem did the team try to solve
-* What is the proposed solution
+This project attempts to create a simple and intuitive interface and backend for reading, submitting and displaying news specific to SMIT.
 
 ### Solution Description
 ----------------------------------
 
-#### Architecture Diagram
-
-Affix an image of the flow diagram/architecture diagram of the solution
-
 #### Technical Description
 
-An overview of 
-* What technologies/versions were used
-* Setup/Installations required to run the solution
-* Instructions to run the submitted code
+Please refer to the Application README for More details and installation steps.
+The project uses:
+* python
+* flask (python)
+* HTML/CSS/JS
+* [SimpleMDE](https://simplemde.com/) (JS)
+* [python-markdown](https://github.com/trentm/python-markdown2)
+* Inkscape
+* SQlite
 
 ### Team Members
 ----------------------------------
 
 * Anamitra Ghorui (anamitraghorui at gmail dot com)
 * Ashish Dev Nagar (princenagar093 at gmail dot com)
-
-
-## Installation
-
-### Prerequisites
-You will need Python 3 (3.7 or greater is recommended) along with the equivalent virtualenv and pip packages.
-
-On Ubuntu, you can install them using the following command:
-```
-# apt install python3 python3-pip python3-venv
-```
-
-### Installation on Linux
-Run the init.sh script which will automatically create the virtualenv and install the required dependencies.
-```
-$ bash ./init.sh
-```
-
-### Installation on Windows
-
-## Usage
-The server can now be started using the start.sh script:
-```
-$ bash ./start.sh
-```
-The key combination CTRL + C can be used to stop the server.
