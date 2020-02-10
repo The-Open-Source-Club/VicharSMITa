@@ -2,6 +2,8 @@
 # Team Number 50 - VicharSMITa
 An SMIT Daily News Website
 
+![Image](https://raw.githubusercontent.com/aghorui/VicharSMITa/master/Presentation/pics/k1.png)
+
 This is a Web Application meant for the [Dcoders Hackathon](https://dcoders.info/hackathon), which is/was on Sunday, 9th Feb. 2020.
 
 ## Project Overview
@@ -10,6 +12,10 @@ This project attempts to create a simple and intuitive interface and backend for
 
 ### Solution Description
 ----------------------------------
+
+#### Diagram
+
+![Image](https://raw.githubusercontent.com/aghorui/VicharSMITa/master/Presentation/pics/k13.png)
 
 #### Technical Description
 

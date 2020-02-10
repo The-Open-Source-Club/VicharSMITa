@@ -137,8 +137,10 @@ def article(article_id):
 
 @app.route('/createarticle', methods=['GET', 'POST'])
 def createarticle():
-    #if not (current_user.is_authenticated):
-      #  return redirect(url_for('login'))
+    if not (current_user.is_authenticated):
+        return redirect(url_for('login'))
+    elif(current_user.role > 1):
+        return render_template('denied.html')
     form = CreateArticleForm();
     if form.validate_on_submit():
         md = Markdown()
