@@ -1,10 +1,9 @@
-## Team Number 50 - VicharSMITa
+# Team Number 50 - VicharSMITa
 An SMIT Daily News Website
 
 This is a Web Application meant for the [Dcoders Hackathon](https://dcoders.info/hackathon), which is/was on Sunday, 9th Feb. 2020.
 
-### Project Overview
-----------------------------------
+## Project Overview
 
 A brief description of 
 * What problem did the team try to solve
@@ -27,8 +26,8 @@ An overview of
 ### Team Members
 ----------------------------------
 
-Anamitra Ghorui (anamitraghorui@gmail.com)
-Ashish Dev Nagar (princenagar093@gmail.com)
+* Anamitra Ghorui (anamitraghorui at gmail dot com)
+* Ashish Dev Nagar (princenagar093 at gmail dot com)
 
 
 ## Installation

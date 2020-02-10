@@ -6,9 +6,13 @@
     {{ article.content|safe }}
     <div id="userpanel">
     <form method="post" class="formbox">
+        {{ form.hidden_tag() }}
         <p>
-        {{ formlike.submit() }}
+        {{ form.like() }} &nbsp;&nbsp;&nbsp;&nbsp; {{ form.readlater() }}
         </p>
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
     </form>
     </div>
 </div>

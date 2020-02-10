@@ -7,9 +7,17 @@ from markdown2 import Markdown
 
 from app import app
 from app.forms import LoginForm, RegisterForm, BrowseForm, CreateArticleForm,\
-                      ArticleLikeForm, ArticleReadLaterForm, ProfileForm
+                      ArticleForm, ProfileForm
 from app.datamodel import User, Article
 from app import db
+
+def rolestr(k):
+    if (k == 0):
+        return "Administrator";
+    elif (k == 1):
+        return "Reporter";
+    elif (k == 2):
+        return "Normal User";
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -28,7 +36,7 @@ def register():
         return redirect(url_for('index'))
     form = RegisterForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data)
+        user = User(username=form.username.data, email=form.email.data, role=2)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
@@ -60,7 +68,21 @@ def profile():
     if not (current_user.is_authenticated):
         return redirect(url_for('login'))
     form = ProfileForm()
-    return render_template('profile.html', title='Sign In', form=form, usertype = 5)
+    p = "";
+    print(current_user.articles);
+    for i in current_user.articles.split():
+        "<li><a href=\"/articles/" + i + "\">" + Article.query.filter_by(id=int(i)).first().title + "</a></li>"
+    return render_template('profile.html', title='Your Profile', form=form, rolestr = rolestr(current_user.role), article = p)
+
+@app.route('/admin')
+def admin():
+    if not (current_user.is_authenticated):
+        return redirect(url_for('login'))
+    elif(not current_user.role == 0):
+        return render_template('denied.html')
+        
+    form = AdminForm()
+    return render_template('admin.html', title='Admin Panel', form=form)
 
 @app.route('/browse', methods=['GET', 'POST'])
 def browse():
@@ -85,17 +107,33 @@ def browse():
 
 @app.route('/article/<article_id>', methods=['GET', 'POST'])
 def article(article_id):
-    if(article_id == ""):
+    if(article_id == None):
         return redirect(url_for('index'))
     else:
         art = Article.query.filter_by(id=article_id).first()
         if(art == None):
             abort(404)
-    formlike = ArticleLikeForm()
-    formlater = ArticleReadLaterForm()
-    if formlike.validate_on_submit():
-        print(current_user.id + "##########################################")
-    return render_template('article.html', article = art, formlike = formlike, formlater = formlater)
+    form = ArticleForm()
+    if form.validate_on_submit():
+        if not (current_user.is_authenticated):
+            return redirect(url_for('login'))
+        if form.like.data:
+            if(str(current_user.id) not in (art.likedusers.split() if art.likedusers else [])):
+                art.likes += 1
+                art.likedusers = (art.likedusers if art.likedusers else "") + str(current_user.id) + " "; 
+                db.session.commit()
+            else:
+                return render_template('article.html', article = art, form = form, message = "You have already liked this article!")
+        elif form.readlater.data:
+            if(str(art.id) not in (current_user.articles.split() if current_user.articles else [])):
+                if current_user.articles:
+                    current_user.articles += " " + str(art.id)
+                else:
+                    current_user.articles = str(art.id)
+                db.session.commit()
+            else:
+                return render_template('article.html', article = art, form = form, message = "This article has already been marked!")
+    return render_template('article.html', article = art, form = form)
 
 @app.route('/createarticle', methods=['GET', 'POST'])
 def createarticle():

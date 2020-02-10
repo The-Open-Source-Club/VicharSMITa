@@ -10,6 +10,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
+    articles = db.Column(db.String(64), index=True)
     
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -33,7 +34,7 @@ class Article(db.Model):
     brief = db.Column(db.UnicodeText(), index=True)
     content = db.Column(db.UnicodeText(), index=True)
     tags = db.Column(db.UnicodeText(), index=True)
-    likes = db.Column(db.Integer, default = 0)
+    likes = db.Column(db.Integer, default = 0, index=True)
     imageurl = db.Column(db.UnicodeText(), index=True)
     likedusers = db.Column(db.UnicodeText(), index=True)
     def __repr__(self):

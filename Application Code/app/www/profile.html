@@ -1,13 +1,19 @@
 {% extends "skel.html" %}
 {% block fg_content %}
 <div id="main-content">
-    <h1>{{ current_user.name }}</h1>
-    <h2>{{ usertype }}</h2>
+    <h1>{{ current_user.username }}</h1>
+    <h2>{{ rolestr }}</h2>
+    <hr>
+    {% if current_user.role == 0 or current_user.role == 1 %}
     <div id="submitted-articles">
         <h2>Submitted articles</h2>
     </div>
+    {% endif %}
     <div id="marked-articles">
-        
+        <h2>Marked articles</h2>
+        <ul>
+            {{ article }}
+        </ul>
     </div>
 </div>
 {% endblock %}

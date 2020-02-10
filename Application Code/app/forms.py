@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, HiddenField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 from wtforms.validators import DataRequired
 from wtforms.widgets import TextArea
@@ -40,12 +40,13 @@ class CreateArticleForm(FlaskForm):
     imageurl = StringField('Thumbnail Image URL (If Any):')
     submit = SubmitField('Publish')
     
-class ArticleLikeForm(FlaskForm):
-    submit = SubmitField(u'♥ Like')
-
-class ArticleReadLaterForm(FlaskForm):
-    submit = SubmitField('Read Later')
+class ArticleForm(FlaskForm):
+    like = SubmitField('Like')
+    readlater = SubmitField('Read Later')
 
 class ProfileForm(FlaskForm):
     currentpassword = PasswordField('Current Password:', validators=[DataRequired()])
     newpassword = PasswordField('New Password:');
+
+class AdminForm(FlaskForm):
+    submit = SubmitField(u'Something')

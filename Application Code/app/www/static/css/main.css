@@ -38,12 +38,11 @@ html {
 }
 
 body {
-    margin: 0 0 200px;
+    margin:0;
     /* bottom = footer height */
 }
 
 #main-fg {
-    min-height: 400px;
     height: 100%;
 }
 
@@ -196,11 +195,12 @@ div.main-title {
     text-align: center;
     font-weight: bold;
     padding: 20px 20px 20px 20px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    min-width:100%;
-    overflow: hidden;
+    position:absolute;
+    display:block;
+    left:0;
+    bottom:0;
+    margin: auto;
+    width:80%;
 }
 
 a {
